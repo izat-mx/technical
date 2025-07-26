@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Dept Roles and Structure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #adc5cf;
+        }
+        
+        .org-box {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .org-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .role-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .role-btn:hover {
+            transform: translateY(-1px);
+        }
+        
+        .detail-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .detail-btn:hover {
+            filter: brightness(1.05);
+        }
+        
+        .org-container {
+            max-width: 1200px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .document-item {
+            transition: all 0.2s ease;
+        }
+        
+        .document-item:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen py-8 px-4">
+        <div class="org-container mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-10">
+                <h1 class="text-4xl font-bold text-indigo-800 mb-2">Technical Department Roles and Structure</h1>
+                <p class="text-gray-600 text-lg">Click on roles to explore the organizational structure</p>
+            </div>
+            
+            <!-- Main Technical Role -->
+            <div class="flex justify-center mb-8">
+                <button id="technical-main" class="org-box bg-indigo-700 text-white text-xl font-bold py-4 px-8 rounded-lg role-btn">
+                    Technical Department
+                </button>
+            </div>
+            
+            <!-- First Level Roles (Hidden initially) -->
+            <div id="technical-roles" class="hidden">
+                <div class="flex flex-col md:flex-row justify-center gap-4 mb-8">
+                    <button id="admin-role" class="org-box bg-blue-600 text-white text-lg font-semibold py-3 px-6 rounded-lg role-btn">
+                        Admin
+                    </button>
+                    <button id="project-role" class="org-box bg-green-600 text-white text-lg font-semibold py-3 px-6 rounded-lg role-btn">
+                        Project & Implementor
+                    </button>
+                    <button id="support-role" class="org-box bg-amber-600 text-white text-lg font-semibold py-3 px-6 rounded-lg role-btn">
+                        Support & Implementor
+                    </button>
+                    <button id="tech-support-role" class="org-box bg-purple-600 text-white text-lg font-semibold py-3 px-6 rounded-lg role-btn">
+                        Technical & Support
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Admin Details (Hidden initially) -->
+            <div id="admin-details" class="hidden">
+                <h2 class="text-2xl font-bold text-blue-700 text-center mb-4">Admin Role Details</h2>
+                <div class="flex flex-col md:flex-row justify-center gap-4 mb-8">
+                    <button id="admin-members" class="detail-btn bg-blue-100 hover:bg-blue-200 text-blue-800 font-medium py-3 px-6 rounded-lg border-2 border-blue-300">
+                        Members
+                    </button>
+                    <button id="admin-main-resp" class="detail-btn bg-blue-100 hover:bg-blue-200 text-blue-800 font-medium py-3 px-6 rounded-lg border-2 border-blue-300">
+                        Main Responsibilities
+                    </button>
+                    <button id="admin-sub-resp" class="detail-btn bg-blue-100 hover:bg-blue-200 text-blue-800 font-medium py-3 px-6 rounded-lg border-2 border-blue-300">
+                        Sub Responsibilities
+                    </button>
+                    <button id="admin-docs" class="detail-btn bg-blue-100 hover:bg-blue-200 text-blue-800 font-medium py-3 px-6 rounded-lg border-2 border-blue-300">
+                        Related Documents
+                    </button>
+                </div>
+                
+                <!-- Admin Content Sections -->
+                <div id="admin-members-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-3">Admin Team Members</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Jane Smith - Administrative Director</li>
+                        <li>John Davis - Resource Coordinator</li>
+                        <li>Emily Johnson - Documentation Specialist</li>
+                        <li>Michael Brown - Administrative Assistant</li>
+                    </ul>
+                </div>
+                
+                <div id="admin-main-resp-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-3">Main Responsibilities</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Coordinating department resources and schedules</li>
+                        <li>Managing technical documentation and knowledge base</li>
+                        <li>Handling budget allocation and expense tracking</li>
+                        <li>Facilitating communication between teams</li>
+                        <li>Organizing department meetings and events</li>
+                    </ul>
+                </div>
+                
+                <div id="admin-sub-resp-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-3">Sub Responsibilities</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Maintaining equipment and software inventory</li>
+                        <li>Processing vendor contracts and relationships</li>
+                        <li>Onboarding new technical staff</li>
+                        <li>Coordinating training programs</li>
+                        <li>Managing office supplies and workspace</li>
+                    </ul>
+                </div>
+                
+                <div id="admin-docs-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-3">Related Documents</h3>
+                    <div class="space-y-3">
+                        <div class="document-item p-3 border border-blue-200 rounded-md">
+                            <h4 class="font-semibold text-blue-600">Administrative Handbook</h4>
+                            <p class="text-sm text-gray-600">Complete guide to administrative procedures and policies</p>
+                        </div>
+                        <div class="document-item p-3 border border-blue-200 rounded-md">
+                            <h4 class="font-semibold text-blue-600">Resource Management Guidelines</h4>
+                            <p class="text-sm text-gray-600">Protocols for managing department resources effectively</p>
+                        </div>
+                        <div class="document-item p-3 border border-blue-200 rounded-md">
+                            <h4 class="font-semibold text-blue-600">Budget Planning Template</h4>
+                            <p class="text-sm text-gray-600">Annual budget planning and tracking document</p>
+                        </div>
+                        <div class="document-item p-3 border border-blue-200 rounded-md">
+                            <h4 class="font-semibold text-blue-600">Onboarding Checklist</h4>
+                            <p class="text-sm text-gray-600">Process document for new technical staff onboarding</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project & Implementor Details (Hidden initially) -->
+            <div id="project-details" class="hidden">
+                <h2 class="text-2xl font-bold text-green-700 text-center mb-4">Project & Implementor Role Details</h2>
+                <div class="flex flex-col md:flex-row justify-center gap-4 mb-8">
+                    <button id="project-members" class="detail-btn bg-green-100 hover:bg-green-200 text-green-800 font-medium py-3 px-6 rounded-lg border-2 border-green-300">
+                        Members
+                    </button>
+                    <button id="project-main-resp" class="detail-btn bg-green-100 hover:bg-green-200 text-green-800 font-medium py-3 px-6 rounded-lg border-2 border-green-300">
+                        Main Responsibilities
+                    </button>
+                    <button id="project-sub-resp" class="detail-btn bg-green-100 hover:bg-green-200 text-green-800 font-medium py-3 px-6 rounded-lg border-2 border-green-300">
+                        Sub Responsibilities
+                    </button>
+                    <button id="project-docs" class="detail-btn bg-green-100 hover:bg-green-200 text-green-800 font-medium py-3 px-6 rounded-lg border-2 border-green-300">
+                        Related Documents
+                    </button>
+                </div>
+                
+                <!-- Project Content Sections -->
+                <div id="project-members-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-green-700 mb-3">Project & Implementor Team Members</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Robert Chen - Project Manager</li>
+                        <li>Sarah Wilson - Senior Implementation Specialist</li>
+                        <li>David Lee - Technical Project Lead</li>
+                        <li>Amanda Garcia - Implementation Coordinator</li>
+                        <li>Kevin Taylor - Project Analyst</li>
+                    </ul>
+                </div>
+                
+                <div id="project-main-resp-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-green-700 mb-3">Main Responsibilities</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Managing technical project lifecycles</li>
+                        <li>Implementing new systems and solutions</li>
+                        <li>Coordinating with stakeholders and clients</li>
+                        <li>Creating project timelines and milestones</li>
+                        <li>Overseeing system deployments</li>
+                        <li>Conducting user acceptance testing</li>
+                    </ul>
+                </div>
+                
+                <div id="project-sub-resp-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-green-700 mb-3">Sub Responsibilities</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Documenting implementation procedures</li>
+                        <li>Training end users on new systems</li>
+                        <li>Performing risk assessments</li>
+                        <li>Creating technical specifications</li>
+                        <li>Monitoring project budgets</li>
+                        <li>Reporting project status to management</li>
+                    </ul>
+                </div>
+                
+                <div id="project-docs-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-green-700 mb-3">Related Documents</h3>
+                    <div class="space-y-3">
+                        <div class="document-item p-3 border border-green-200 rounded-md">
+                            <h4 class="font-semibold text-green-600">Project Management Methodology</h4>
+                            <p class="text-sm text-gray-600">Standard methodology for managing technical projects</p>
+                        </div>
+                        <div class="document-item p-3 border border-green-200 rounded-md">
+                            <h4 class="font-semibold text-green-600">Implementation Playbook</h4>
+                            <p class="text-sm text-gray-600">Step-by-step guide for system implementations</p>
+                        </div>
+                        <div class="document-item p-3 border border-green-200 rounded-md">
+                            <h4 class="font-semibold text-green-600">Project Status Report Template</h4>
+                            <p class="text-sm text-gray-600">Weekly status reporting format for projects</p>
+                        </div>
+                        <div class="document-item p-3 border border-green-200 rounded-md">
+                            <h4 class="font-semibold text-green-600">Risk Assessment Framework</h4>
+                            <p class="text-sm text-gray-600">Guidelines for identifying and mitigating project risks</p>
+                        </div>
+                        <div class="document-item p-3 border border-green-200 rounded-md">
+                            <h4 class="font-semibold text-green-600">User Acceptance Testing Plan</h4>
+                            <p class="text-sm text-gray-600">Template for planning and executing UAT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support & Implementor Details (Hidden initially) -->
+            <div id="support-details" class="hidden">
+                <h2 class="text-2xl font-bold text-amber-700 text-center mb-4">Support & Implementor Role Details</h2>
+                <div class="flex flex-col md:flex-row justify-center gap-4 mb-8">
+                    <button id="support-members" class="detail-btn bg-amber-100 hover:bg-amber-200 text-amber-800 font-medium py-3 px-6 rounded-lg border-2 border-amber-300">
+                        Members
+                    </button>
+                    <button id="support-main-resp" class="detail-btn bg-amber-100 hover:bg-amber-200 text-amber-800 font-medium py-3 px-6 rounded-lg border-2 border-amber-300">
+                        Main Responsibilities
+                    </button>
+                    <button id="support-sub-resp" class="detail-btn bg-amber-100 hover:bg-amber-200 text-amber-800 font-medium py-3 px-6 rounded-lg border-2 border-amber-300">
+                        Sub Responsibilities
+                    </button>
+                    <button id="support-docs" class="detail-btn bg-amber-100 hover:bg-amber-200 text-amber-800 font-medium py-3 px-6 rounded-lg border-2 border-amber-300">
+                        Related Documents
+                    </button>
+                </div>
+                
+                <!-- Support Content Sections -->
+                <div id="support-members-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-amber-700 mb-3">Support & Implementor Team Members</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Thomas Wright - Support Team Lead</li>
+                        <li>Lisa Martinez - Senior Support Specialist</li>
+                        <li>Ryan Johnson - Implementation Support</li>
+                        <li>Olivia Kim - Customer Success Manager</li>
+                        <li>James Wilson - Technical Support Analyst</li>
+                    </ul>
+                </div>
+                
+                <div id="support-main-resp-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-amber-700 mb-3">Main Responsibilities</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Providing technical support to end users</li>
+                        <li>Troubleshooting system issues</li>
+                        <li>Assisting with system implementations</li>
+                        <li>Managing support ticket queue</li>
+                        <li>Maintaining knowledge base articles</li>
+                        <li>Conducting user training sessions</li>
+                    </ul>
+                </div>
+                
+                <div id="support-sub-resp-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-amber-700 mb-3">Sub Responsibilities</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Creating support documentation</li>
+                        <li>Performing system health checks</li>
+                        <li>Coordinating with development teams</li>
+                        <li>Monitoring system performance</li>
+                        <li>Gathering user feedback</li>
+                        <li>Participating in implementation planning</li>
+                    </ul>
+                </div>
+                
+                <div id="support-docs-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-amber-700 mb-3">Related Documents</h3>
+                    <div class="space-y-3">
+                        <div class="document-item p-3 border border-amber-200 rounded-md">
+                            <h4 class="font-semibold text-amber-600">Support Procedures Manual</h4>
+                            <p class="text-sm text-gray-600">Standard operating procedures for support team</p>
+                        </div>
+                        <div class="document-item p-3 border border-amber-200 rounded-md">
+                            <h4 class="font-semibold text-amber-600">Troubleshooting Guide</h4>
+                            <p class="text-sm text-gray-600">Common issues and resolution steps</p>
+                        </div>
+                        <div class="document-item p-3 border border-amber-200 rounded-md">
+                            <h4 class="font-semibold text-amber-600">Knowledge Base Guidelines</h4>
+                            <p class="text-sm text-gray-600">Standards for creating and maintaining KB articles</p>
+                        </div>
+                        <div class="document-item p-3 border border-amber-200 rounded-md">
+                            <h4 class="font-semibold text-amber-600">User Training Materials</h4>
+                            <p class="text-sm text-gray-600">Templates and resources for end-user training</p>
+                        </div>
+                        <div class="document-item p-3 border border-amber-200 rounded-md">
+                            <h4 class="font-semibold text-amber-600">Support SLA Document</h4>
+                            <p class="text-sm text-gray-600">Service level agreements for support response times</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical & Support Details (Hidden initially) -->
+            <div id="tech-support-details" class="hidden">
+                <h2 class="text-2xl font-bold text-purple-700 text-center mb-4">Technical & Support Role Details</h2>
+                <div class="flex flex-col md:flex-row justify-center gap-4 mb-8">
+                    <button id="tech-support-members" class="detail-btn bg-purple-100 hover:bg-purple-200 text-purple-800 font-medium py-3 px-6 rounded-lg border-2 border-purple-300">
+                        Members
+                    </button>
+                    <button id="tech-support-main-resp" class="detail-btn bg-purple-100 hover:bg-purple-200 text-purple-800 font-medium py-3 px-6 rounded-lg border-2 border-purple-300">
+                        Main Responsibilities
+                    </button>
+                    <button id="tech-support-sub-resp" class="detail-btn bg-purple-100 hover:bg-purple-200 text-purple-800 font-medium py-3 px-6 rounded-lg border-2 border-purple-300">
+                        Sub Responsibilities
+                    </button>
+                    <button id="tech-support-docs" class="detail-btn bg-purple-100 hover:bg-purple-200 text-purple-800 font-medium py-3 px-6 rounded-lg border-2 border-purple-300">
+                        Related Documents
+                    </button>
+                </div>
+                
+                <!-- Tech Support Content Sections -->
+                <div id="tech-support-members-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-purple-700 mb-3">Technical & Support Team Members</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Alex Rodriguez - Technical Support Manager</li>
+                        <li>Sophia Chen - Senior Systems Engineer</li>
+                        <li>Nathan Williams - Network Support Specialist</li>
+                        <li>Emma Davis - Technical Solutions Architect</li>
+                        <li>Daniel Park - Infrastructure Support Engineer</li>
+                    </ul>
+                </div>
+                
+                <div id="tech-support-main-resp-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-purple-700 mb-3">Main Responsibilities</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Providing advanced technical troubleshooting</li>
+                        <li>Managing system infrastructure</li>
+                        <li>Implementing technical solutions</li>
+                        <li>Maintaining system security</li>
+                        <li>Performing system upgrades and patches</li>
+                        <li>Resolving complex technical issues</li>
+                    </ul>
+                </div>
+                
+                <div id="tech-support-sub-resp-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-purple-700 mb-3">Sub Responsibilities</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Creating technical documentation</li>
+                        <li>Conducting system performance analysis</li>
+                        <li>Developing automation scripts</li>
+                        <li>Providing escalation support</li>
+                        <li>Researching new technologies</li>
+                        <li>Mentoring junior technical staff</li>
+                    </ul>
+                </div>
+                
+                <div id="tech-support-docs-content" class="hidden bg-white p-6 rounded-lg shadow-md mb-8 mx-auto max-w-3xl">
+                    <h3 class="text-xl font-bold text-purple-700 mb-3">Related Documents</h3>
+                    <div class="space-y-3">
+                        <div class="document-item p-3 border border-purple-200 rounded-md">
+                            <h4 class="font-semibold text-purple-600">Technical Architecture Documentation</h4>
+                            <p class="text-sm text-gray-600">System architecture diagrams and specifications</p>
+                        </div>
+                        <div class="document-item p-3 border border-purple-200 rounded-md">
+                            <h4 class="font-semibold text-purple-600">Infrastructure Maintenance Guide</h4>
+                            <p class="text-sm text-gray-600">Procedures for maintaining technical infrastructure</p>
+                        </div>
+                        <div class="document-item p-3 border border-purple-200 rounded-md">
+                            <h4 class="font-semibold text-purple-600">Security Protocols</h4>
+                            <p class="text-sm text-gray-600">Guidelines for maintaining system security</p>
+                        </div>
+                        <div class="document-item p-3 border border-purple-200 rounded-md">
+                            <h4 class="font-semibold text-purple-600">Escalation Matrix</h4>
+                            <p class="text-sm text-gray-600">Process for escalating complex technical issues</p>
+                        </div>
+                        <div class="document-item p-3 border border-purple-200 rounded-md">
+                            <h4 class="font-semibold text-purple-600">System Performance Benchmarks</h4>
+                            <p class="text-sm text-gray-600">Standards for system performance monitoring</p>
+                        </div>
+                        <div class="document-item p-3 border border-purple-200 rounded-md">
+                            <h4 class="font-semibold text-purple-600">Automation Scripts Library</h4>
+                            <p class="text-sm text-gray-600">Documentation for common automation scripts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back Button (Hidden initially) -->
+            <div id="back-button" class="hidden text-center mt-8">
+                <button id="back-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg">
+                    Back to Main View
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Main Technical Department button
+        document.getElementById('technical-main').addEventListener('click', function() {
+            document.getElementById('technical-roles').classList.remove('hidden');
+            document.getElementById('back-button').classList.remove('hidden');
+            this.classList.add('bg-indigo-800');
+        });
+        
+        // Admin Role button
+        document.getElementById('admin-role').addEventListener('click', function() {
+            hideAllDetails();
+            document.getElementById('admin-details').classList.remove('hidden');
+        });
+        
+        // Project & Implementor Role button
+        document.getElementById('project-role').addEventListener('click', function() {
+            hideAllDetails();
+            document.getElementById('project-details').classList.remove('hidden');
+        });
+        
+        // Support & Implementor Role button
+        document.getElementById('support-role').addEventListener('click', function() {
+            hideAllDetails();
+            document.getElementById('support-details').classList.remove('hidden');
+        });
+        
+        // Technical & Support Role button
+        document.getElementById('tech-support-role').addEventListener('click', function() {
+            hideAllDetails();
+            document.getElementById('tech-support-details').classList.remove('hidden');
+        });
+        
+        // Admin detail buttons
+        document.getElementById('admin-members').addEventListener('click', function() {
+            hideAllContentSections('admin');
+            document.getElementById('admin-members-content').classList.remove('hidden');
+        });
+        
+        document.getElementById('admin-main-resp').addEventListener('click', function() {
+            hideAllContentSections('admin');
+            document.getElementById('admin-main-resp-content').classList.remove('hidden');
+        });
+        
+        document.getElementById('admin-sub-resp').addEventListener('click', function() {
+            hideAllContentSections('admin');
+            document.getElementById('admin-sub-resp-content').classList.remove('hidden');
+        });
+        
+        document.getElementById('admin-docs').addEventListener('click', function() {
+            hideAllContentSections('admin');
+            document.getElementById('admin-docs-content').classList.remove('hidden');
+        });
+        
+        // Project detail buttons
+        document.getElementById('project-members').addEventListener('click', function() {
+            hideAllContentSections('project');
+            document.getElementById('project-members-content').classList.remove('hidden');
+        });
+        
+        document.getElementById('project-main-resp').addEventListener('click', function() {
+            hideAllContentSections('project');
+            document.getElementById('project-main-resp-content').classList.remove('hidden');
+        });
+        
+        document.getElementById('project-sub-resp').addEventListener('click', function() {
+            hideAllContentSections('project');
+            document.getElementById('project-sub-resp-content').classList.remove('hidden');
+        });
+        
+        document.getElementById('project-docs').addEventListener('click', function() {
+            hideAllContentSections('project');
+            document.getElementById('project-docs-content').classList.remove('hidden');
+        });
+        
+        // Support detail buttons
+        document.getElementById('support-members').addEventListener('click', function() {
+            hideAllContentSections('support');
+            document.getElementById('support-members-content').classList.remove('hidden');
+        });
+        
+        document.getElementById('support-main-resp').addEventListener('click', function() {
+            hideAllContentSections('support');
+            document.getElementById('support-main-resp-content').classList.remove('hidden');
+        });
+        
+        document.getElementById('support-sub-resp').addEventListener('click', function() {
+            hideAllContentSections('support');
+            document.getElementById('support-sub-resp-content').classList.remove('hidden');
+        });
+        
+        document.getElementById('support-docs').addEventListener('click', function() {
+            hideAllContentSections('support');
+            document.getElementById('support-docs-content').classList.remove('hidden');
+        });
+        
+        // Tech Support detail buttons
+        document.getElementById('tech-support-members').addEventListener('click', function() {
+            hideAllContentSections('tech-support');
+            document.getElementById('tech-support-members-content').classList.remove('hidden');
+        });
+        
+        document.getElementById('tech-support-main-resp').addEventListener('click', function() {
+            hideAllContentSections('tech-support');
+            document.getElementById('tech-support-main-resp-content').classList.remove('hidden');
+        });
+        
+        document.getElementById('tech-support-sub-resp').addEventListener('click', function() {
+            hideAllContentSections('tech-support');
+            document.getElementById('tech-support-sub-resp-content').classList.remove('hidden');
+        });
+        
+        document.getElementById('tech-support-docs').addEventListener('click', function() {
+            hideAllContentSections('tech-support');
+            document.getElementById('tech-support-docs-content').classList.remove('hidden');
+        });
+        
+        // Back button
+        document.getElementById('back-btn').addEventListener('click', function() {
+            resetView();
+        });
+        
+        // Helper functions
+        function hideAllDetails() {
+            const details = ['admin-details', 'project-details', 'support-details', 'tech-support-details'];
+            details.forEach(id => {
+                document.getElementById(id).classList.remove('hidden');
+                document.getElementById(id).classList.add('hidden');
+            });
+        }
+        
+        function hideAllContentSections(prefix) {
+            const sections = [
+                `${prefix}-members-content`, 
+                `${prefix}-main-resp-content`, 
+                `${prefix}-sub-resp-content`,
+                `${prefix}-docs-content`
+            ];
+            
+            sections.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+        }
+        
+        function resetView() {
+            // Hide all details
+            hideAllDetails();
+            
+            // Hide all content sections
+            ['admin', 'project', 'support', 'tech-support'].forEach(prefix => {
+                hideAllContentSections(prefix);
+            });
+            
+            // Reset main view
+            document.getElementById('technical-roles').classList.add('hidden');
+            document.getElementById('back-button').classList.add('hidden');
+            document.getElementById('technical-main').classList.remove('bg-indigo-800');
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9655aff2f1b238fa',t:'MTc1MzU1MTY4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
